@@ -3,13 +3,13 @@
 // Books Reducers
 const initialState = {
     books: [{
-        id: 1,
+        _id: 1,
         title: 'The Maze Runner',
         description: 'First of the trilogy',
         price: 9.99,
     },
     {
-        id: 2,
+        _id: 2,
         title: 'The Maze Runner: Scorch Trials',
         description: 'Second of the trilogy',
         price: 10.99,
@@ -33,7 +33,7 @@ export function booksReducers(state=initialState, action){
             const currentBookToDelete = [...state.books];
             // Determine at which index in books array is the book to be deleted
             const indexToDelete = currentBookToDelete.findIndex((book) => {
-                return book.id === action.payload.id;
+                return book._id === action.payload._id;
             });
             // use slice to remove the book at the specified index
             return {
@@ -48,7 +48,7 @@ export function booksReducers(state=initialState, action){
             const currentBookToUpdate = [...state.books];
             // Determine at which index in books array is the book to be deleted
             const indexToUpdate = currentBookToUpdate.findIndex((book) => {
-                return book.id === action.payload.id;
+                return book._id === action.payload._id;
             });
             // Create a new book object with the new values 
             const newBookToUpdate = {

@@ -6,3 +6,13 @@ export function addToCart(book) {
         payload: book
     };
 };
+
+// DELETE FROM CART
+
+export function deleteCartItem(book) {
+    return {
+        type: 'DELETE_CART_ITEM',
+        payload: book
+    };
+};
+
