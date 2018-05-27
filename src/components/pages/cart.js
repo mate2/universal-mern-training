@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Col, Panel, Row, Well, Button, ButtonGroup, Label} from 'react-bootstrap';
+import {Modal, Col, Panel, Row, Well, Button, ButtonGroup, Label} from 'react-bootstrap';
 import {bindActionCreators} from 'redux';
 
 import {deleteCartItem, updateCart} from '../../actions/cartActions';
@@ -11,6 +11,19 @@ class Cart extends React.Component {
         this.onDelete = this.onDelete.bind(this);
         this.onIncrement = this.onIncrement.bind(this);
         this.onDecrement = this.onDecrement.bind(this);
+        this.handleOpen = this.handleOpen.bind(this);
+        this.handleClose = this.handleClose.bind(this);
+        this.state = {
+            show: false
+        };
+    }
+
+    handleOpen() {
+        this.setState({show: true});
+    }
+
+    handleClose() {
+        this.setState({show: false});
     }
 
     onDelete(_id) {
@@ -75,6 +88,29 @@ class Cart extends React.Component {
                 <Panel.Heading>Cart</Panel.Heading>
                 <Panel.Body>
                     {cartItemsList}
+                    <Row>
+                        <Col>
+                            <h6>Total amount: {this.props.totalAmount}</h6>
+                            <Button bsStyle='success' bsSize='small' onClick={this.handleOpen}>
+                                Proceed to checout
+                            </Button>
+                        </Col>
+                    </Row>
+                    <Modal show={this.state.show} onHide={this.handleClose}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Thank you !</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <h6>Your order has been saved</h6>
+                            <p>You will receive an email confirmation</p>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Col>
+                                <h6>total $: {this.props.totalAmount}</h6>
+                            </Col>
+                            <Button onClick={this.handleClose}>Close</Button>
+                        </Modal.Footer>
+                        </Modal>
                 </Panel.Body>
             </Panel>
         );
@@ -89,7 +125,9 @@ class Cart extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        cart: state.cart.cart
+        cart: state.cart.cart,
+        totalAmount: state.cart.totalAmount,
+        totalQty: state.cart.totalQty,
     }
 };
 
