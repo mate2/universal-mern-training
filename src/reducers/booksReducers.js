@@ -55,7 +55,6 @@ export function booksReducers(state=initialState, action){
                 ...currentBookToUpdate[indexToUpdate],
                 title: action.payload.title
             };
-            console.log("what's it newBookToUpdate", newBookToUpdate);
             // Use slice to remove the book at specidied index, replace with the new object and concatenate with the res of items in array
             return {
                 books: [
