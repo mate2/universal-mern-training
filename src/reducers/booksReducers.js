@@ -2,18 +2,7 @@
 
 // Books Reducers
 const initialState = {
-    books: [{
-        _id: 1,
-        title: 'The Maze Runner',
-        description: 'First of the trilogy',
-        price: 9.99,
-    },
-    {
-        _id: 2,
-        title: 'The Maze Runner: Scorch Trials',
-        description: 'Second of the trilogy',
-        price: 10.99,
-    }]
+    books: []
 }
 
 export function booksReducers(state=initialState, action){
@@ -21,19 +10,26 @@ export function booksReducers(state=initialState, action){
         case "GET_BOOKS":
             // let books = state.books.concat(action.payload);
             // return {books};
-            return {...state, books: [...state.books]};
+            return {...state, books: [...action.payload]};
         break;
         case "POST_BOOK":
             // let books = state.books.concat(action.payload);
             // return {books};
-            return {books: [...state.books, ...action.payload]};
+            return {...state, books: [...state.books, ...action.payload], msg: 'Saved! Click to continue', style: 'success'};
+        break;
+        case "POST_BOOK_REJECTED":
+            return {...state, msg: 'Please try again', style: 'danger'};
+        break;
+        case "RESET_BUTTON":
+            return {...state, msg: null, style: 'primary'};
         break;
         case "DELETE_BOOK":
             // Create a copy of the current array of books
             const currentBookToDelete = [...state.books];
             // Determine at which index in books array is the book to be deleted
             const indexToDelete = currentBookToDelete.findIndex((book) => {
-                return book._id === parseInt(action.payload);
+                return book._id === action.payload;
+                // return book._id === parseInt(action.payload);
             });
             // use slice to remove the book at the specified index
             return {

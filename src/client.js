@@ -8,6 +8,7 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 import { applyMiddleware, createStore} from 'redux';
 import logger from 'redux-logger';
+import thunk from 'redux-thunk';
 
 // import combined reducers
 import reducers from './reducers/index';
@@ -21,7 +22,7 @@ import BooksForm from './components/pages/booksForm';
 import Main from './main';
 
 // Step 1 create the store
-const middleware = applyMiddleware(logger);
+const middleware = applyMiddleware(thunk, logger);
 const store = createStore(reducers, middleware);
 
 // store.subscribe(function(){

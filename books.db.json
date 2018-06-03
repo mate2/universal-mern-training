@@ -2,16 +2,19 @@
     {
         "title" : "The Maze Runner",
         "description" : "First of the trilogy",
+        "images" : "/images/mr1.jpg",
         "price" : 9.99
     },
     {
         "title" : "The Maze Runner: Scorch Trials",
         "description" : "Second of the trilogy",
+        "images" : "/images/mr2.jpg",
         "price" : 10.99
     },
     {
         "title" : "The Maze Runner: The Death Cure",
         "description" : "third of the trilogy",
+        "images" : "/images/mr3.jpg",
         "price" : 11.99
     }
 ]
