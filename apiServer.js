@@ -110,7 +110,8 @@ app.delete('/books/:_id', (req, res) => {
 
   Books.remove(query, (err, books) => {
     if(err) {
-      throw err;
+      // throw err;
+      console.log('Fail to delete book', err);
     }
     res.json(books);
   });

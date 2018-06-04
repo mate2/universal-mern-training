@@ -9,6 +9,15 @@ class BookItem extends React.Component {
     constructor(props){
         super(props);
         this.handleCart = this.handleCart.bind(this);
+        this.onReadMore = this.onReadMore.bind(this);
+
+        this.state = {
+            isClicked: false
+        };
+    }
+
+    onReadMore() {
+        this.setState({isClicked: true});
     }
 
     handleCart() {
@@ -51,7 +60,11 @@ class BookItem extends React.Component {
                     </Col>
                     <Col xs={12} sm={8}>
                         <h6>{this.props.title}</h6>
-                        <p>{this.props.description}</p>
+                        <p>{(this.props.description.length > 50 && this.state.isClicked === false) ? (this.props.description.substring(0,50)) : (this.props.description)}
+                            <button className='link' onClick={this.onReadMore}>
+                                {(this.state.isClicked === false && this.props.description !== null && this.props.description.length > 50) ? ('...read more') : ('')}
+                            </button>
+                        </p>
                         <h6>usd. {this.props.price}</h6>
                         <Button bsStyle='primary' onClick={this.handleCart}>Buy now</Button>
                     </Col>
