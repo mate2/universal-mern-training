@@ -1,0 +1,20 @@
+[
+    {
+        "title" : "The Maze Runner",
+        "description" : "The Maze Runner is a 2009 young adult post-apocalyptic dystopian science fiction novel written by American author James Dashner and the first book released in The Maze Runner series, although it is the third in narrative order.[2][3] The novel was published 7 October 2009 by Delacorte Press, an imprint of Random House, and was made into a 2014 major motion picture by 20th Century Fox.",
+        "images" : "/images/mr1.jpg",
+        "price" : 9.99
+    },
+    {
+        "title" : "The Maze Runner: Scorch Trials",
+        "description" : "The Scorch Trials is a 2010 young adult post-apocalyptic dystopian science fiction novel written by American author James Dashner and the second book, fourth chronologically, in The Maze Runner series. The novel was published on 18 September 2010 by Delacorte Press. It is preceded by The Maze Runner, and followed by The Death Cure. A film adaptation was released on 18 September 2015 by 20th Century Fox.[2]",
+        "images" : "/images/mr2.jpg",
+        "price" : 10.99
+    },
+    {
+        "title" : "The Maze Runner: The Death Cure",
+        "description" : "The Death Cure is a 2011 young adult dystopian science fiction novel written by American writer James Dashner and the third book published in the Maze Runner series (the fifth and last in narrative order).[1] It was published on 11 October 2011 by Delacorte Press and was preceded in publication order by The Maze Runner and The Scorch Trials and followed by the series prequels, The Kill Order and The Fever Code. In narrative order, it is the last book in the series.",
+        "images" : "/images/mr3.jpg",
+        "price" : 11.99
+    }
+]
